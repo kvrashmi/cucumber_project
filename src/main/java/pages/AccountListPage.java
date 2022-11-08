@@ -17,19 +17,17 @@ public class AccountListPage extends BasePage {
 	
 	
 	@FindBy(how=How.XPATH,using="//*[@id=\"page-wrapper\"]/div[3]/div[1]/div/div/div[2]/table/tbody/tr[2]/td[2]")WebElement ACCOUNTS_TABLE;
+	@FindBy(how=How.XPATH,using="/html/body/section/div/div[1]/div[3]/div[1]")WebElement ACCOUNT_CREATED_TEXT;
 	
-	public void validateAccountCreation()
+	public String validateAccountCreation()
 	{
-		try
-		{
-			Thread.sleep(6000);
-			String sCellValue = ACCOUNTS_TABLE.getText();
-			System.out.println("val:"+sCellValue);
-		}
-		catch(InterruptedException e)
-		{
-			e.printStackTrace();
-		}
+		super.explicitlyWaitForElements("Div","/html/body/section/div/div[1]/div[3]/div[1]" );
+		System.out.println(ACCOUNT_CREATED_TEXT.isDisplayed());
+		System.out.println(ACCOUNT_CREATED_TEXT.getTagName());
+		System.out.println(ACCOUNT_CREATED_TEXT.getText().indexOf("Account Created Successfully"));
+		System.out.println(ACCOUNT_CREATED_TEXT.getText().length());
+		String arr=ACCOUNT_CREATED_TEXT.getText();
+		return arr.substring(2,arr.length() );
 		
 	}
 }

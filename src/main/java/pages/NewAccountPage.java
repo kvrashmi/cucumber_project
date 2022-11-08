@@ -14,13 +14,14 @@ public class NewAccountPage extends BasePage{
 		super(driver);
 	}
 	
-	@FindBy(how=How.XPATH,using="/html/body/section/div/nav/div/ul/li[10]/a/span[1]")WebElement BANK_AND_CASH;
+	@FindBy(how=How.XPATH,using="/html/body/section/div/nav/div/ul/li[10]")WebElement BANK_AND_CASH;
 	public void clickBankAndCashLink()
 	{
-		super.explicitlyWaitForElements("Link", "/html/body/section/div/nav/div/ul/li[10]/a/span[1]");
-		BANK_AND_CASH.click();
+		super.explicitlyWaitForElements("Link","/html/body/section/div/nav/div/ul/li[10]" );
+		super.hoverOverElement(BANK_AND_CASH);
+		//BANK_AND_CASH.click();
 	}
-	
+
 	@FindBy(how=How.XPATH,using="/html/body/section/div/nav/div/ul/li[10]/ul/li[1]/a")WebElement NEW_ACCOUNT;
 	public void clickNewAccountLink()
 	{

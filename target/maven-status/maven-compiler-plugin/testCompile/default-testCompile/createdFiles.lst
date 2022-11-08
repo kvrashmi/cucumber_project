@@ -1,2 +1,2 @@
-runners/LoginRunner.class
-steps/LoginStepDefiniton.class
+runners/Runner.class
+steps/NewAccountStepDefinition.class

@@ -19,5 +19,11 @@ public class TestBase {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		
 	}
+	
+	public static void tearDown()
+	{
+		driver.close();
+		driver.quit();
+	}
 
 }

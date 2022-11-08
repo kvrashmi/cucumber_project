@@ -1,2 +1,3 @@
-/Users/rashmikanduluvavikraman/selenium-workspace/CucumberProject/src/test/java/runners/LoginRunner.java
+/Users/rashmikanduluvavikraman/selenium-workspace/CucumberProject/src/test/java/runners/Runner.java
+/Users/rashmikanduluvavikraman/selenium-workspace/CucumberProject/src/test/java/steps/NewAccountStepDefinition.java
 /Users/rashmikanduluvavikraman/selenium-workspace/CucumberProject/src/test/java/steps/LoginStepDefiniton.java

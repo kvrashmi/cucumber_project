@@ -1,6 +1,7 @@
 package steps;
 
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import cucumber.api.java.en.And;
@@ -27,20 +28,17 @@ public class NewAccountStepDefinition extends TestBase{
 	String accountNumber="1002";	
 	String contactPerson="AccountMgr";
 	String phoneNo="799-500-";
-	String internetBankingUrl="citibank.com";
+	String internetBankingUrl="https://www.citibank.com";
 	
 	@Given("^User is on the techfios login page for add account$")
-	   public void user_is_on_the_techfios_login_page_for_add_account()
-	   {
+	public void user_is_on_the_techfios_login_page_for_add_account() 
+	{
 		   TestBase.initDriver();
 		   lp=PageFactory.initElements(driver, LoginPage.class);
 		   np=PageFactory.initElements(driver, NewAccountPage.class);
 		   ap=PageFactory.initElements(driver, AccountListPage.class);
-
 		   driver.get("http://www.techfios.com/billing/?ng=admin/");
-		   
-	   }
-	
+	}
 	
 	@When("^User enters the username as \"([^\"]*)\"$")
 	public void user_enters_the_username_as(String arg1)
@@ -63,8 +61,10 @@ public class NewAccountStepDefinition extends TestBase{
 	@Then("^User should land on Dashboard page$")
 	public void user_should_land_on_dashboard_page()
 	{
-		String expectedTitle = "Dashboard- iBilling";
+		String expectedTitle = new String("Dashboard- iBilling");
 		String actualTitle	= lp.getTitle();
+		System.out.println("ActualTitle:"+actualTitle);
+		Assert.assertEquals("The values are not equal",expectedTitle,actualTitle);
 	}
 	
 	@And("^User clicks on bankcash link$")
@@ -134,8 +134,10 @@ public class NewAccountStepDefinition extends TestBase{
 	@Then("^User should be able to validate account created successfully$")
 	public void user_should_be_able_to_validate_account_created_successfully()
 	{
-		ap.validateAccountCreation();
-	}
-	   
-
+		String accountCreation=ap.validateAccountCreation();
+		System.out.println("Ac:"+accountCreation);
+		Assert.assertEquals("Account not created","Account Created Successfully", accountCreation);
+		TestBase.tearDown();
+    }
+	
 }

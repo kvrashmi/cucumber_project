@@ -3,7 +3,6 @@ package util;
 import java.util.Random;
 
 
-import org.junit.*;
 
 
 public class Helper {
@@ -16,12 +15,6 @@ public class Helper {
 	}
 	
 	
-	
-	public static boolean compareUrls(String url1,String url2)
-	{
-		Assert.assertEquals(url2, url1);
-		return url1.equals(url2);
-	}
 	
 	
 	

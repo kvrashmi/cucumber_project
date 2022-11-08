@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -47,18 +48,28 @@ public class BasePage {
 		{
 			wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(locatorText))));
 		}
+		else if(elemType.equals("Div"))
+		{
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locatorText)));
+		}
 	}
 	
 	public int getTableColumnCount(String tableLocator)
 	{
 		//Get the number of columns in this table
-		List <WebElement> col = driver.findElements(By.xpath(tableLocator));
+		List <WebElement> col = this.driver.findElements(By.xpath(tableLocator));
 	    return col.size();	    
 	}
 	
 	public int getTableRowCount(String tableLocator)
 	{
-		List <WebElement> rows = driver.findElements(By.xpath(tableLocator)); 
+		List <WebElement> rows = this.driver.findElements(By.xpath(tableLocator)); 
 		return rows.size();
+	}
+	
+	public void hoverOverElement(WebElement element)
+	{
+		Actions action = new Actions(this.driver);
+		action.moveToElement(element).perform();
 	}
 }

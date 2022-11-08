@@ -1,4 +1,6 @@
 util/Helper.class
-util/ConfigReader.class
-util/XMLReader.class
-util/BrowserFactory.class
+pages/LoginPage.class
+pages/TestBase.class
+pages/BasePage.class
+pages/NewAccountPage.class
+pages/AccountListPage.class

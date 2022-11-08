@@ -16,9 +16,9 @@ public class LoginPage extends BasePage {
 	}
 	
 	//WebElements List
-	@FindBy(how=How.XPATH,using="//input[@id='username']")WebElement USER_NAME;
-	@FindBy(how=How.XPATH,using="//input[@id='password']")WebElement PASS_WORD;
-	@FindBy(how=How.NAME,using="login")WebElement SIGNIN_BUTTON;
+	public @FindBy(how=How.XPATH,using="//input[@id='username']")WebElement USER_NAME;
+	public @FindBy(how=How.XPATH,using="//input[@id='password']")WebElement PASS_WORD;
+	public @FindBy(how=How.NAME,using="login")WebElement SIGNIN_BUTTON;
 	
 	
 	//Methods
